@@ -24,6 +24,7 @@ const AuthNavigator = () => {
       component: RegisterScreen,
       headerShown: true,
     },
+
   ];
 
   return (

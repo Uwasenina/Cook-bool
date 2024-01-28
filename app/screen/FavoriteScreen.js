@@ -156,7 +156,6 @@ const RecipeScreen = () => {
       console.log(error);
     }
   };
-
   const getToken = async () => {
     try {
       const token = await Notifications.getExpoPushTokenAsync({
@@ -167,7 +166,6 @@ const RecipeScreen = () => {
       console.log(error);
     }
   };
-
   useEffect(() => {
     requestPermissions();
     getToken();
@@ -182,7 +180,7 @@ const RecipeScreen = () => {
 
       await Notifications.scheduleNotificationAsync({
         content: {
-          title: "You have a new booking",
+          title: "Notification",
           body: "You have a new booking",
         },
         trigger: {
@@ -241,15 +239,18 @@ const BookingItem = ({ item }) => {
       ]
     );
   };
-
+  console.log(item.recipeId.image);
   return (
     <View style={{ flex: 1, marginVertical: 10, flexDirection: "row" }}>
       <View style={{ flex: 1 }}>
         <Image
           source={{
-            uri: "https://images.immediate.co.uk/production/volatile/sites/30/2023/06/Ultraprocessed-food-58d54c3.jpg?quality=90&resize=440,400",
+            uri:
+              item?.recipeId.image ||
+              "https://images.immediate.co.uk/production/volatile/sites/30/2023/06/Ultraprocessed-food-58d54c3.jpg?quality=90&resize=440,400",
           }}
           style={{ width: "100%", height: 100, borderRadius: 10 }}
+          alt="hhhh"
         />
       </View>
       <View style={{ flex: 1, padding: 10 }}>
@@ -340,7 +341,6 @@ const BookingItem = ({ item }) => {
 const BookScreen = () => {
   const [refresh, setRefresh] = useState(false);
   const { bookings, setUser } = useContext(AppContext);
-  console.log(bookings);
 
   return (
     <View style={{ padding: 10, flex: 1 }}>

@@ -10,6 +10,7 @@ import * as Yup from "yup";
 import axios from "../config/axios";
 import { getData, storeData } from "../config/storage";
 import { useContext } from "react";
+import AppContext from "../config/context";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -17,7 +18,7 @@ const validationSchema = Yup.object().shape({
   names: Yup.string().required().label("Names"),
 });
 const RegisterScreen = ({ navigation }) => {
-  const { user, setUser  } = useContext();
+  const { user, setUser } = useContext(AppContext);
 
   const handleRegister = async (values) => {
     console.log(values);

@@ -1,4 +1,11 @@
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React, { useContext } from "react";
 import Screen from "../components/Screen";
 import { MaterialCommunityIcons as Mat } from "@expo/vector-icons";
@@ -87,7 +94,7 @@ const HomeScreen = () => {
     "Drinks",
   ];
   const [activeCategory, setActiveCategory] = React.useState("Breakfast");
-  const { recipes, setUser } = useContext(AppContext);
+  const { recipes, user, setUser } = useContext(AppContext);
   return (
     <Screen>
       <View
@@ -104,7 +111,7 @@ const HomeScreen = () => {
             flexDirection: "row",
           }}
         >
-          <ProfileTop name="John Doe" />
+          <ProfileTop name={user.names} />
           <TouchableOpacity
             onPress={() => {
               removeData("user");

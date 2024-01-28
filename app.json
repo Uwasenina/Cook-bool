@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Virtual-cookbook",
-    "slug": "Virtual-cookbook",
+    "slug": "recipe-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,16 +15,24 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "recipes.com"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.uwasenina_yvonne.recipeapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "65acb294-3dd3-4222-ae93-efa7232d5c78"
+      }
+    },
+    "owner": "uwasenina_yvonne"
   }
 }
